@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions, StyleSheet} from 'react-native';
 import {
     LineChart,
 } from "react-native-chart-kit";
@@ -8,8 +8,9 @@ import {
 
 const Chart = () => {
     return (
-        <View>
+        <View style={styles.conteiner}>
             <Text>Bezier Line Chart</Text>
+            {console.log(Dimensions.get("window").width)}
             <LineChart
                 data={{
                     labels: ["0.0 s", "1.0 s", "2.0 s", "3.0 s", "4.0 s", "5.0 s"],
@@ -27,12 +28,13 @@ const Chart = () => {
                     ]
                 }}
                 width={Dimensions.get("window").width} // from react-native
+                
                 height={220}
                 yAxisSuffix="kg"
                 yAxisInterval={1} // optional, defaults to 1
                 chartConfig={{
-                    backgroundColor: "#A8A8A8",
-                    backgroundGradientFrom: "#A8A8A8",
+                    backgroundColor: "#fff",
+                    backgroundGradientFrom: "#FFF",
                     backgroundGradientTo: "#A8A8A8",
                     decimalPlaces: 2, // optional, defaults to 2dp
                     color: (opacity = 1) => `rgba(232, 74, 91, ${opacity})`,
@@ -49,6 +51,7 @@ const Chart = () => {
                 bezier
                 style={{
                     marginVertical: 8,
+                    marginHorizontal:0,
                     borderRadius: 16
                 }}
             />
@@ -57,3 +60,11 @@ const Chart = () => {
 }
 
 export default Chart;
+
+
+const styles = StyleSheet.create({
+    conteiner:{
+        
+        // marginTop:20,
+    }
+})

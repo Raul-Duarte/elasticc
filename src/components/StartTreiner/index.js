@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList
+} from 'react-native';
 import { Button, Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-;
 
 const StartTreiner = () => {
 
     const [visible, setVisible] = useState(false);
-    const [exercicio, setExercicio] = useState('')
+    const [exercicio, setExercicio] = useState('');
+    const [time, setTime] = useState(0)
 
     const data = [
         {
@@ -23,7 +27,7 @@ const StartTreiner = () => {
 
     const Item = ({ title }) => (
         <View style={styles.item}>
-            
+
             <Button
                 title={title}
                 buttonStyle={styles.button}
@@ -44,6 +48,17 @@ const StartTreiner = () => {
     const renderItem = ({ item }) => (
         <Item title={item.title} />
     );
+
+    const timerFun = () => {
+        let i = 1
+        let timer = setInterval(() => {
+            if (i < 6) {
+                setTime(i++)
+            }
+
+        }, 1000);
+    }
+
     return (
 
         <View>
@@ -56,7 +71,7 @@ const StartTreiner = () => {
                         size={20}
                     />
                     <Text style={styles.timeText}>
-                        00m 00s
+                        {time} s
                      </Text>
                 </View>
 
@@ -83,6 +98,7 @@ const StartTreiner = () => {
                 <Button
                     title="INICIAR"
                     buttonStyle={styles.button}
+                    onPress={() => timerFun()}
                     icon={
                         <Icon
                             name="play"

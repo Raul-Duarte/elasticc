@@ -1,5 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    Dimensions
+} from 'react-native'
 import { Avatar } from 'react-native-elements'
 
 
@@ -39,13 +44,13 @@ const styles = StyleSheet.create({
         borderBottomColor: '#A8A8A8',
         borderStyle: "solid",
         borderBottomWidth: 2,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
 
     },
     avatar: {
-        margin:10,
-        alignItems:'center',
+        margin: 10,
+        alignItems: 'center',
     }
 })

@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
-import {
-    LineChart,
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // import { Container } from './styles';
@@ -91,7 +89,6 @@ export default Chart;
 const styles = StyleSheet.create({
     chart: {
 
-        // marginTop:20,
     },
     icons: {
         flexDirection:'row',

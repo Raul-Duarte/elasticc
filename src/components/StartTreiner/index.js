@@ -1,43 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { Button, Overlay, ListItem, Icon as Teste } from 'react-native-elements';
+import { Button, Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-// import analytics from '../../assets/icons/teste.png'
+
+;
 
 const StartTreiner = () => {
 
     const [visible, setVisible] = useState(false);
-    // const [exercicio, setExercicio] = useState(data)
-
+    const [exercicio, setExercicio] = useState('')
 
     const data = [
         {
             id: '1',
-            name: 'Appointments',
+            title: 'Abdominal',
         },
         {
             id: '2',
-            name: 'Trips',
+            title: 'Flexção',
         },
     ]
+
+    const Item = ({ title }) => (
+        <View style={styles.item}>
+            
+            <Button
+                title={title}
+                buttonStyle={styles.button}
+                onPress={() => setButton(title)}
+            />
+        </View>
+    )
+
+    const setButton = title => {
+        setExercicio(title)
+        toggleOverlay()
+    }
 
     const toggleOverlay = () => {
         setVisible(!visible);
     };
 
-    //Time
-
-    // useEffect(() => {
-    //     let i = 1.0
-    //     i+1
-    //     let timer = setInterval(() => console.log(i+1), 1000);
-
-    //     return () => clearInterval(timer)
-    // }, [])
-
-  
+    const renderItem = ({ item }) => (
+        <Item title={item.title} />
+    );
     return (
+
         <View>
+
             <View >
                 <View style={styles.timer}>
                     <Icon
@@ -51,25 +61,21 @@ const StartTreiner = () => {
                 </View>
 
                 <Button
-                    title="Abdominal"
+                    title={exercicio != '' ? exercicio : 'Selecione...'}
                     iconRight={true}
                     type="outline"
                     titleStyle={styles.exercicioText}
-                    // icon={
-                    //     <Icon
-
-                    //         name="arrow-right"
-                    //         size={15}
-                    //         color="black"
-                    //     />
-                    // }
                     onPress={toggleOverlay}
                     buttonStyle={styles.exercicio}
 
                 />
                 <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
                     <View style={styles.overlay}>
-                        
+                        <FlatList
+                            data={data}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                        />
                     </View>
                 </Overlay>
             </View>
@@ -97,7 +103,6 @@ const StartTreiner = () => {
                             color="white"
                             style={styles.icon}
                         />
-
                     }
                 />
             </View>
@@ -107,7 +112,6 @@ const StartTreiner = () => {
 }
 
 export default StartTreiner;
-
 
 const styles = StyleSheet.create({
     icon: {
@@ -155,5 +159,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignContent: "center",
 
-    }
+    },
+    item: {
+        // backgroundColor: '#f9c2ff',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+    },
+    title: {
+        fontSize: 32,
+    },
 })

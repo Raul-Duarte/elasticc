@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         maxWidth: Dimensions.get('window').width,
         borderBottomColor: '#A8A8A8',
         borderStyle: "solid",
-        borderBottomWidth: 5,
+        borderBottomWidth: 2,
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',

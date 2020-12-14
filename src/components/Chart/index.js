@@ -8,20 +8,30 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 // import { Container } from './styles';
 
 const Chart = () => {
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
     return (
         <>
             <View style={styles.icons} >
                 <Icon
                     raised
-                    name='heartbeat'
+                    style={styles.icon}
+                    name='cog'
+                    size={30}
                     type='font-awesome'
-                    color='#f50'
+                    color='#e84a5b'
                     onPress={() => console.log('hello')} />
                 <Icon
                     raised
-                    name='heartbeat'
+                    name='align-left'
                     type='font-awesome'
-                    color='#f50'
+                    size={30}
+                    color='#e84a5b'
                     onPress={() => console.log('hello')} />
             </View>
             <View style={styles.chart}>
@@ -32,12 +42,12 @@ const Chart = () => {
                         datasets: [
                             {
                                 data: [
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100,
-                                    Math.random() * 100
+                                    0,
+                                    getRandomInt(0,31),
+                                    getRandomInt(0,31),
+                                    getRandomInt(0,31),
+                                    getRandomInt(0,31),
+                                    getRandomInt(0,31),
                                 ]
                             }
                         ]
@@ -84,11 +94,18 @@ const styles = StyleSheet.create({
         // marginTop:20,
     },
     icons: {
-        margin:10,
+        flexDirection:'row',
+        marginTop:15,
+        marginRight:40,
+        marginLeft:40,
         alignItems:'center',
         justifyContent:'space-between',
-        alignContent:'space-between'
+        alignContent:'space-between',
+    },
 
+    icon:{
+
+        height:50,
 
     }
 })

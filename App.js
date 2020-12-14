@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Header } from 'react-native-elements'
 import Chart from './src/components/Chart';
 import InfoTreiner from './src/components/InfoTreiner';
@@ -13,14 +13,14 @@ const App = () => {
         placement="left"
         backgroundColor="#e84a5b"
         leftComponent={{ icon: 'menu', color: '#fff' }}
-        centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-        rightComponent={{ icon: 'home', color: '#fff' }}
+        centerComponent={{ text: 'ELASTIC', style: { color: '#fff' } }}
+        rightComponent={{ icon: 'arrow-left', color: '#fff' }}
       />
-      <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.container}>
         <InfoTreiner />
         <Chart />
         <StartTreiner/>
-      </SafeAreaView>
+      </ScrollView>
 
     </>
   )

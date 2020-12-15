@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-// import { Container } from './styles';
 
 const Chart = () => {
 
@@ -11,10 +9,10 @@ const Chart = () => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
-      }
+    }
 
     return (
-        <>
+        <View >
             <View style={styles.icons} >
                 <Icon
                     raised
@@ -23,7 +21,7 @@ const Chart = () => {
                     size={30}
                     type='font-awesome'
                     color='#e84a5b'
-                    onPress={() => console.log('hello')} />
+                    onPress={() => console.log('CONFIG')} />
                 <Icon
                     raised
                     name='align-left'
@@ -33,7 +31,6 @@ const Chart = () => {
                     onPress={() => console.log('hello')} />
             </View>
             <View style={styles.chart}>
-                {console.log(Dimensions.get("window").width)}
                 <LineChart
                     data={{
                         labels: ["0.0 s", "1.0 s", "2.0 s", "3.0 s", "4.0 s", "5.0 s"],
@@ -41,11 +38,11 @@ const Chart = () => {
                             {
                                 data: [
                                     0,
-                                    getRandomInt(0,31),
-                                    getRandomInt(0,31),
-                                    getRandomInt(0,31),
-                                    getRandomInt(0,31),
-                                    getRandomInt(0,31),
+                                    getRandomInt(0, 31),
+                                    getRandomInt(0, 31),
+                                    getRandomInt(0, 31),
+                                    getRandomInt(0, 31),
+                                    getRandomInt(0, 31),
                                 ]
                             }
                         ]
@@ -64,6 +61,7 @@ const Chart = () => {
                         labelColor: (opacity = 1) => `rgba(232, 74, 91, ${opacity})`,
                         style: {
                             borderRadius: 16
+
                         },
                         propsForDots: {
                             r: "6",
@@ -75,11 +73,12 @@ const Chart = () => {
                     style={{
                         marginVertical: 8,
                         marginHorizontal: 0,
-                        borderRadius: 16
+                        borderRadius: 16,
+
                     }}
                 />
             </View>
-        </>
+        </View>
     )
 }
 
@@ -87,22 +86,20 @@ export default Chart;
 
 
 const styles = StyleSheet.create({
-    chart: {
 
-    },
     icons: {
-        flexDirection:'row',
-        marginTop:15,
-        marginRight:40,
-        marginLeft:40,
-        alignItems:'center',
-        justifyContent:'space-between',
-        alignContent:'space-between',
+        flexDirection: 'row',
+        marginTop: 15,
+        marginRight: 40,
+        marginLeft: 40,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        alignContent: 'center',
     },
 
-    icon:{
+    icon: {
 
-        height:50,
+        height: 50,
 
     }
 })

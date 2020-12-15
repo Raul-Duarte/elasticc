@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    FlatList
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { Button, Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -21,13 +16,16 @@ const StartTreiner = () => {
         },
         {
             id: '2',
-            title: 'Flexção',
+            title: 'Flexão de Cotovelo',
+        },
+        {
+            id: '3',
+            title: 'Abdominal Supra',
         },
     ]
 
     const Item = ({ title }) => (
         <View style={styles.item}>
-
             <Button
                 title={title}
                 buttonStyle={styles.button}
@@ -51,7 +49,7 @@ const StartTreiner = () => {
 
     const timerFun = () => {
         let i = 1
-        let timer = setInterval(() => {
+        setInterval(() => {
             if (i < 6) {
                 setTime(i++)
             }

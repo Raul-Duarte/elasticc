@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { Header } from 'react-native-elements'
 import Chart from './src/components/Chart';
 import InfoTreiner from './src/components/InfoTreiner';
 import StartTreiner from './src/components/StartTreiner';
-// import { Container } from './styles';
 
 const App = () => {
   return (
@@ -30,8 +29,7 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // margin: 10,
-
+    flex:1,
+    flexDirection:'column'
   },
 })
